@@ -1,26 +1,58 @@
 import re
 
 # -----------------------------
-# Keywords that indicate LOW signal (branding / fluff)
+# LOW-SIGNAL (branding / fluff)
 # -----------------------------
 NOISE_KEYWORDS = [
     "imagine", "phenomenal", "world-class", "customers",
     "proud", "passion", "inspired", "innovation",
     "shopping experience", "leave the world",
-    "diversity", "culture"
+    "diversity", "culture", "amazing", "great place",
+    "excited", "fast-paced", "dynamic environment"
 ]
 
 # -----------------------------
-# Keywords that indicate HIGH signal (skills / responsibilities)
+# HIGH-SIGNAL (technical + role)
 # -----------------------------
 SIGNAL_KEYWORDS = [
-    "develop", "design", "build", "maintain", "implement",
-    "automate", "automation", "program", "coding",
-    "debug", "deploy", "ci/cd", "pipeline",
-    "machine learning", "deep learning", "ml", "ai", "llm",
-    "python", "java", "scala", "node", "sql",
-    "framework", "system", "architecture"
+
+    # --- Core SDE / Software ---
+    "software development", "software engineer", "sde",
+    "develop", "design", "build", "implement", "maintain",
+    "debug", "troubleshoot", "optimize",
+    "architecture", "scalable", "distributed systems",
+    "backend", "frontend", "full stack",
+    "api", "rest", "microservices",
+
+    # --- Programming Languages ---
+    "python", "java", "scala", "c++", "c#", "golang", "go",
+    "javascript", "typescript", "node", "nodejs",
+
+    # --- Data / ML / AI ---
+    "machine learning", "deep learning", "ml", "ai",
+    "llm", "nlp", "data analysis", "model",
+    "training", "inference", "feature engineering",
+
+    # --- Automation / QA / Tools ---
+    "automation", "automated", "test automation",
+    "qa", "quality assurance", "tools development",
+    "framework", "workflow",
+
+    # --- DevOps / Infra ---
+    "ci/cd", "pipeline", "deployment", "devops",
+    "docker", "kubernetes", "cloud",
+    "aws", "gcp", "azure",
+
+    # --- Databases / Systems ---
+    "sql", "nosql", "database", "data store",
+    "performance", "latency", "throughput",
+
+    # --- Engineering Practices ---
+    "code review", "design patterns",
+    "software lifecycle", "sdlc",
+    "testing", "monitoring", "logging"
 ]
+
 
 
 def split_into_sentences(text: str) -> list:
