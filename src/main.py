@@ -2,6 +2,8 @@ from src.preprocessing.text_cleaner import clean_text
 from src.features.tfidf_vectorizer import vectorize_texts
 from src.similarity.cosine_similarity import calculate_similarity
 from src.skills.skill_extractor import find_missing_skills
+from src.jd_processing.jd_cleaner import clean_job_description
+
 
 
 def load_text(file_path: str) -> str:
@@ -24,7 +26,10 @@ def main():
     # 2. Clean text
     # -----------------------------
     clean_resume = clean_text(resume_text)
-    clean_jd = clean_text(jd_text)
+
+# De-noise and extract signal from JD
+    signal_jd = clean_job_description(jd_text)
+    clean_jd = clean_text(signal_jd)
 
     # -----------------------------
     # 3. Vectorize text
