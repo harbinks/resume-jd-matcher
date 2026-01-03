@@ -22,14 +22,5 @@ def vectorize_texts(texts: list):
 
     return tfidf_matrix, vectorizer
 
-if __name__ == "__main__":
-    sample_texts = [
-        "python machine learning data analysis",
-        "looking python developer machine learning experience"
-    ]
 
-    vectors, vectorizer = vectorize_texts(sample_texts)
-
-    print("TF-IDF shape:", vectors.shape)
-    print("Feature names:", vectorizer.get_feature_names_out())
 
